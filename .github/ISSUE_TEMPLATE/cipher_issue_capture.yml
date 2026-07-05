@@ -1,0 +1,195 @@
+name: Cipher issue capture
+description: Capture Cipher work with intent, acceptance, risk gates, and visible evidence.
+title: ""
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for Cipher bugs, enhancements, hardening, docs, release-risk, and process work. Creating an issue is capture, not build commitment.
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options:
+        - Bug
+        - Enhancement
+        - Hardening
+        - Docs
+        - Release-risk
+        - Process
+    validations:
+      required: true
+  - type: textarea
+    id: intent
+    attributes:
+      label: Intent
+      description: What should feel different when this is done?
+    validations:
+      required: true
+  - type: textarea
+    id: original-context
+    attributes:
+      label: Original Context
+      description: What did Matt, Mote, or an agent notice? Preserve the source signal here.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What is wrong, missing, risky, or confusing?
+    validations:
+      required: true
+  - type: textarea
+    id: initial-acceptance
+    attributes:
+      label: Initial Acceptance
+      description: Only fill this in when acceptance is already obvious. Otherwise leave it for spec.
+      placeholder: "- [ ] ..."
+    validations:
+      required: false
+  - type: textarea
+    id: non-goals
+    attributes:
+      label: Non-Goals
+      description: What should this issue explicitly not change?
+    validations:
+      required: false
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Surface
+      options:
+        - Web
+        - Mobile
+        - API-data
+        - DB
+        - Iron-tooling
+        - Release-infra
+        - Docs-process
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: Status
+      options:
+        - Backlog
+        - Spec Needed
+        - Ready
+    validations:
+      required: true
+  - type: dropdown
+    id: owner-lane-guess
+    attributes:
+      label: Owner Lane Guess
+      description: Optional first guess; spec can correct it.
+      options:
+        - spec
+        - web-builder
+        - mobile-builder
+        - api-data
+        - db-guardian
+        - review
+        - verifier
+        - release-captain
+        - mote
+        - unknown
+    validations:
+      required: false
+  - type: dropdown
+    id: db-guardian
+    attributes:
+      label: DB Guardian
+      options:
+        - required
+        - not needed
+        - unknown
+    validations:
+      required: true
+  - type: dropdown
+    id: release-captain
+    attributes:
+      label: Release Captain
+      options:
+        - required
+        - not needed
+        - unknown
+    validations:
+      required: true
+  - type: dropdown
+    id: crabbox
+    attributes:
+      label: Crabbox
+      description: Required for Iron/tool execution, API/data contracts, DB-ish paths, auth/payments, release infra, and broad behavior changes.
+      options:
+        - required
+        - recommended
+        - exempt
+    validations:
+      required: true
+  - type: textarea
+    id: risk-reason
+    attributes:
+      label: Risk Gate Reason
+      description: Why do these gates fit the change?
+    validations:
+      required: true
+  - type: textarea
+    id: required-evidence
+    attributes:
+      label: Required Evidence
+      description: Review evidence, verifier behavior proof, or exemption rationale.
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification
+      description: What should an agent run or inspect to prove this worked?
+    validations:
+      required: true
+  - type: textarea
+    id: implementation-notes
+    attributes:
+      label: Implementation Notes
+      description: Only include constraints or hints that preserve intent. Leave blank when not needed.
+    validations:
+      required: false
+  - type: textarea
+    id: open-questions
+    attributes:
+      label: Open Questions
+      description: Use None only when this is ready enough to build. Include owner, question, and default if unanswered.
+      placeholder: |
+        - Owner: Matt / Mote / Spec / Tech / External
+          Question:
+          Default if unanswered:
+    validations:
+      required: true
+  - type: textarea
+    id: mote-intent-check
+    attributes:
+      label: Mote Intent Check
+      description: Mote fills this before moving Spec Needed to Ready.
+      placeholder: |
+        Mote Intent Check: pass / hold
+        Why / Problem:
+        Watch for / Next:
+    validations:
+      required: false
+  - type: textarea
+    id: notes-links
+    attributes:
+      label: Notes / Links
+      description: Screenshots, PRs, traces, errors, logs, related issues, or other context.
+    validations:
+      required: false
+  - type: textarea
+    id: type-specific
+    attributes:
+      label: Optional Type-Specific Prompts
+      description: Add repro, observed/expected behavior, user outcome, risk reduced, docs audience, release impact, or rollback trigger when relevant.
+    validations:
+      required: false
